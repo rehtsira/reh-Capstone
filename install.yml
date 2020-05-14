@@ -1,0 +1,10 @@
+---
+- hosts: [production]
+  become: yes
+  tasks:
+    - name: Installing vim, git, and curl package again
+      apt: name={{ item }} state=present
+      with_items:
+         - vim
+         - git
+         - curl

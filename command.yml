@@ -1,0 +1,13 @@
+---
+- hosts: [production]
+  become: yes
+  tasks:
+    - name: Check the memory information
+      command: cat /proc/meminfo
+    - name: Check ethernet information
+      command: ip a
+    - name: Check hostname
+      command: hostname
+    - name: Check listening ports
+      command: netstat -tulpn | grep LISTEN
+    
